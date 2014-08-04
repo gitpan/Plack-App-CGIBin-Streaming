@@ -5,7 +5,9 @@ LICENSE
 MANIFEST
 META.json
 META.yml
+Makefile.PL
 README
+build-deb-package
 cpanfile
 dist.ini
 eg/app.psgi
