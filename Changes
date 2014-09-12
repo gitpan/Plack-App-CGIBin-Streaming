@@ -1,5 +1,10 @@
 Revision history for Plack-App-CGIBin-Streaming
 
+0.04  2014-09-12 16:37:33 UTC
+        - localize $/ and $\
+        - use our PerlIO layer also on STDIN to be more PSGI conform
+          (TODO: implement BINMODE, SEEK and perhaps FILENO)
+
 0.03  2014-08-04 05:30:29 UTC
         - add EUMM based Makefile.PL
         - add build-debian-package

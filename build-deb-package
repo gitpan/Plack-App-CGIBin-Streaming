@@ -51,7 +51,7 @@ D="$(perl -CO -MCPAN::Meta -le '
 
 mkdir .debinst/DEBIAN
 cat >.debinst/DEBIAN/control <<EOF
-Package: lib$N-perl
+Package: lib${N,,}-perl
 Architecture: all
 Depends: $R
 Version: $V-1

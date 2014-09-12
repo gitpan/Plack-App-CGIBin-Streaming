@@ -7,14 +7,19 @@ no warnings 'uninitialized';
 use Carp;
 
 # my %trace=
-#     (
-#      new=>sub {warn "NEW: @_"},
-#      flush=>sub {warn "FLUSH: @_"},
-#      content=>sub {warn "CONTENT: @_"},
-#     );
+#    (
+#     new=>sub {warn "NEW: @_"},
+#     header=>sub {warn "HEADER: @_"},
+#     flush=>sub {warn "FLUSH: @_"},
+#     status_out=>sub {warn "STATUS OUT: @_"},
+#     content=>sub {warn "CONTENT: @_"},
+#     finalize_start=>sub {warn "FINALIZE START: @_"},
+#     finalize_end=>sub {warn "FINALIZE END: @_"},
+#    );
 # use constant TRACE=>sub {
-#     my $what=shift;
-#     $trace{$what} and $trace{$what}->(@_);
+#    my $what=shift;
+#    local $SIG{__WARN__};
+#    $trace{$what} and $trace{$what}->(@_);
 # } ;
 
 use constant TRACE=>0;

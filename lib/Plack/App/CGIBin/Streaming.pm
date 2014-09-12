@@ -3,7 +3,7 @@ package Plack::App::CGIBin::Streaming;
 use 5.014;
 use strict;
 use warnings;
-our $VERSION = '0.03';
+our $VERSION = '0.04';
 
 BEGIN {
     # this works around a bug in perl
@@ -86,15 +86,20 @@ sub mkapp {
                 );
 
             local *STDIN = $env->{'psgi.input'};
+            binmode STDIN, 'via(Plack::App::CGIBin::Streaming::IO)';
 
             # CGI::Compile localizes $0 and %SIG and calls
             # CGI::initialize_globals.
-            my $err = eval {$sub->() // ''};
+            my $err = eval {
+                local ($/, $\) = ($/, $\);
+                $sub->() // '';
+            };
             my $exc = $@;
             $R->suppress_flush=1;   # turn off normal flush behavior
             {
                 no warnings 'uninitialized';
                 binmode STDOUT;
+                binmode STDIN;
             }
             $R->finalize;
             unless (defined $err) { # $sub died
