@@ -21,6 +21,9 @@ t/Plack/Handler/TestServer.pm
 t/basic.t
 t/cgi-bin/dummy1.cgi
 t/cgi-bin/dummy2.cgi
+t/cgi-bin/io-binmode-stdin.cgi
+t/cgi-bin/io-binmode.cgi
+t/cgi-bin/io-seek.cgi
 t/cgi-bin/io.cgi
 t/cgi-bin/perlio.cgi
 t/cgi-bin/preload.cgi
@@ -29,6 +32,9 @@ t/cgi-bin/suppress_flush.cgi
 t/cgi-bin/using-R.cgi
 t/cgi-bin/utf8.cgi
 t/filter.t
+t/io-binmode-stdin.t
+t/io-binmode.t
+t/io-seek.t
 t/io.t
 t/perlio.t
 t/preload.t
