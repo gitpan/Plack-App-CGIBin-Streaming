@@ -3,7 +3,7 @@ package Plack::App::CGIBin::Streaming;
 use 5.014;
 use strict;
 use warnings;
-our $VERSION = '0.05';
+our $VERSION = '0.06';
 
 BEGIN {
     # this works around a bug in perl
@@ -101,6 +101,11 @@ sub mkapp {
                 no warnings 'uninitialized';
                 binmode STDOUT;
                 binmode STDIN;
+            }
+            unless (defined $err) {
+                warn "$env->{REQUEST_URI}: It's too late to set a HTTP status"
+                    if $R->status_written;
+                $R->status(500);
             }
             $R->finalize;
             unless (defined $err) { # $sub died

@@ -31,7 +31,7 @@ resources:
   bugtracker: https://github.com/binary-com/perl-Plack-App-CGIBin-Streaming/issues
   homepage: https://github.com/binary-com/perl-Plack-App-CGIBin-Streaming
   repository: https://github.com/binary-com/perl-Plack-App-CGIBin-Streaming.git
-version: '0.05'
+version: '0.06'
 x_contributors:
   - 'Jean-Yves Sireau <jy@binary.com>'
   - 'Kaveh Mousavi Zamani <kaveh@binary.com>'
